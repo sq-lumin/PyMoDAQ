@@ -62,6 +62,7 @@ ignore = [
 members = [
     "packages/*",
 ]
+
 [tool.uv.sources]
 pymodaq = { workspace = true }
 pymodaq_data = { workspace = true }
