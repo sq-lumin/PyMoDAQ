@@ -1,5 +1,18 @@
 # Root configuration for development tooling
 # Package-specific build configs remain in packages/*/pyproject.toml
+[project]
+name = "pymodaq-workspace"
+dynamic = [
+    "version",
+]
+description = "Modular Data Acquisition with Python"
+readme = "README.rst"
+license = { file="LICENSE" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Sébastien Weber", email = "sebastien.weber@cemes.fr" },
+]
+dependencies = []
 
 [tool.pytest.ini_options]
 addopts = "--import-mode=importlib"
@@ -44,6 +57,21 @@ ignore = [
     "B008",   # function call in default argument (common in Qt)
     "SIM108", # ternary operator (can reduce readability)
 ]
+
+[tool.uv]
+default-groups = ['dev']
+
+[tool.uv.workspace]
+members = [
+    "packages/*",
+]
+[tool.uv.sources]
+pymodaq = { workspace = true }
+pymodaq_data = { workspace = true }
+pymodaq_gui = { workspace = true }
+pymodaq_scripting = { workspace = true }
+pymodaq_utils = { workspace = true }
+
 
 [tool.ruff.lint.isort]
 known-first-party = ["pymodaq", "pymodaq_utils", "pymodaq_data", "pymodaq_gui"]
