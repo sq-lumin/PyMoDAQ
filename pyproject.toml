@@ -58,9 +58,6 @@ ignore = [
     "SIM108", # ternary operator (can reduce readability)
 ]
 
-[tool.uv]
-default-groups = ['dev']
-
 [tool.uv.workspace]
 members = [
     "packages/*",
